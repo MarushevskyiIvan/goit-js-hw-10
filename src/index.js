@@ -1,7 +1,3 @@
-// import axios from 'axios';
-// axios.defaults.headers.common['x-api-key'] =
-//   'live_zr60gtmYway2jnmViOgPzPnqk2naOknryCdDGPr2wxWgNvyf71N5SCBtIUltTvla';
-// import { fetchBreeds } from './js/cat-api';
 const API_KEY =
   'live_zr60gtmYway2jnmViOgPzPnqk2naOknryCdDGPr2wxWgNvyf71N5SCBtIUltTvla';
 const selectEl = document.querySelector('.breed-select');
