@@ -18,7 +18,6 @@ function fetchBreeds() {
       return response.json();
     })
     .then(data => {
-      console.log(data);
       return selectMarkup(data);
     })
     .catch(error => {
@@ -45,12 +44,9 @@ function fetchCatByBreed(id) {
       if (!response.ok) {
         throw new Error(response.status);
       }
-      // console.log(response);
       return response.json();
     })
     .then(data => {
-      console.log(data);
-
       return catInfoMarkup(data);
     })
     .catch(error => {
