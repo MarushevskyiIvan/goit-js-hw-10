@@ -31,7 +31,7 @@ function selectMarkup(data) {
     .map(({ name, id }) => {
       const optionMarkup = `<option value="${id}">${name}</option>`;
       selectEl.insertAdjacentHTML('beforeend', optionMarkup);
-      breedId = id;
+
       fetchCatByBreed(id);
     })
     .join('');
