@@ -10,3 +10,17 @@
   clip-path: inset(50%);
   margin: -1px;
 }
+
+.cat-info {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+}
+
+.cat-text-info {
+  display: inline;
+}
+
+span {
+  font-weight: 700;
+}

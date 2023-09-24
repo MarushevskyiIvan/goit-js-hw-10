@@ -13,10 +13,12 @@ export function catInfoMarkup(result) {
   return result
     .map(item => {
       const infoMarkup = `
-  <img src="${item.url}" width="300">
+  <img src="${item.url}" width="400">
+  <div class="cat-text-info">
   <h3>${item.breeds[0].name}</h3>
   <p>${item.breeds[0].description}</p>
-  <p>Темперамент: ${item.breeds[0].temperament}</p>`;
+  <p><span>Temperament:</span> ${item.breeds[0].temperament}</p>
+  </div>`;
 
       refs.divEl.innerHTML = infoMarkup;
     })
