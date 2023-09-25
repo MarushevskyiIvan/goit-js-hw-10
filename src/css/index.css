@@ -24,3 +24,28 @@
 span {
   font-weight: 700;
 }
+
+.loader {
+  font-weight: 700;
+}
+
+.error {
+  color: red;
+  font-weight: 700;
+}
+
+select {
+  background: rgb(255, 255, 255);
+  outline: none;
+  color: rgb(16, 82, 161);
+  border: none;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+
+  height: 50px;
+  padding: 0 20px;
+  font-size: 18px;
+  border: none;
+  outline: 0;
+}

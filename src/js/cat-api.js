@@ -1,5 +1,4 @@
 import { refs } from './refs';
-import { selectMarkup } from './markup';
 import { catInfoMarkup } from './markup';
 
 const API_KEY =
@@ -7,40 +6,37 @@ const API_KEY =
 const BASE_URL = 'https://api.thecatapi.com/v1';
 
 export function fetchBreeds() {
-  refs.selectEl.classList.add('visually-hidden');
-  fetch(`${BASE_URL}/breeds?&breed_ids=beng&?api_key=${API_KEY}`)
-    .then(response => {
-      refs.loaderEl.classList.remove('visually-hidden');
+  return fetch(`${BASE_URL}/breeds?&breed_ids=beng&?api_key=$ {API_KEY}`).then(
+    response => {
+      // refs.loaderEl.classList.remove('visually-hidden');
       if (!response.ok) {
         throw new Error(response.status);
       }
       return response.json();
-    })
-    .then(result => {
-      refs.selectEl.classList.remove('visually-hidden');
-      refs.loaderEl.classList.add('visually-hidden');
-      selectMarkup(result);
-    })
-    .catch(error => {
-      refs.loaderEl.classList.add('visually-hidden');
-      refs.errorEl.classList.remove('visually-hidden');
-      console.warn('Network Error', error);
-    });
+    }
+  );
 }
 
 export function fetchCatByBreed(id) {
+  return fetch(
+    `${BASE_URL}/images/search?api_key=${API_KEY}&breed_ids=${id}`
+  ).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
+}
+
+export function onSelectElChange(evt) {
+  const selectValue = evt.target.value;
   refs.divEl.innerHTML = '';
   refs.loaderEl.classList.remove('visually-hidden');
-  fetch(`${BASE_URL}/images/search?api_key=${API_KEY}&breed_ids=beng,${id}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
+
+  fetchCatByBreed(selectValue)
     .then(result => {
-      catInfoMarkup(result);
       refs.loaderEl.classList.add('visually-hidden');
+      catInfoMarkup(result);
     })
     .catch(error => {
       console.warn('Network Error', error);
