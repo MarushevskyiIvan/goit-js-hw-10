@@ -24,7 +24,7 @@ fetchBreeds()
   });
 
 function onSelectElChange(evt) {
-  selectValue = evt.target.value;
+  const selectValue = evt.target.value;
   refs.divEl.innerHTML = '';
   refs.loaderEl.classList.remove('visually-hidden');
   fetchCatByBreed(selectValue)
